@@ -9,6 +9,9 @@ init()
 	version=$(uname -r)
 	date=$(date '+%Y%m%d%H%M%S')
 
+	# Make sure we are in the TESTS_WORKDIR
+	cd $TESTS_WORKDIR
+
 	mkdir -p tests
 	cd tests
 }
