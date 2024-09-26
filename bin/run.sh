@@ -6,6 +6,9 @@ clone_or_pull() {
 
 init()
 {
+	version=$(uname -r)
+	date=$(date '+%Y%m%d%H%M%S')
+
 	mkdir -p tests
 	cd tests
 }
@@ -21,9 +24,8 @@ mmtests()
 
 	cd mmtests
 
-	# Run tests normal and container
-	./run-mmtests.sh --no-monitor --config configs/config-workload-kernbench-max 6.8.0-vanilla
-	./run-container.sh --no-monitor --config configs/config-workload-kernbench-max 6.8.0-vanilla-docker
+	# Run tests
+	./run-mmtests.sh --no-monitor --config configs/config-workload-kernbench-max "${version}-linux-${date}"
 
 	# Compare results
 	cd work/log
@@ -37,7 +39,7 @@ lkp()
 	echo "Running lkp..."
 }
 
-while getopts ":l:m" option; do
+while getopts ":m:l" option; do
 	case $option in
 		m) mmtests
 		   exit;;
