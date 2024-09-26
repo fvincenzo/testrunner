@@ -32,7 +32,10 @@ mmtests()
 
 	# Compare results
 	cd work/log
-	../../compare-kernels.sh --format html --output-dir $TESTS_WORKDIR > $TESTS_WORKDIR/index.html
+	cp -Rf * $LOG_WORKDIR
+
+	cd $LOG_WORKDIR
+	../tests/mmtests/compare-kernels.sh --format html --output-dir $TESTS_WORKDIR > $TESTS_WORKDIR/index.html
 }
 
 lkp()

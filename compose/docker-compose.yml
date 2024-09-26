@@ -6,7 +6,7 @@ services:
     container_name: "testrunner"
     volumes:
       - <html full path>:/testrunner/html
-      - <log full path>:/testrunner/tests/mmtests/work/log
+      - <log full path>:/testrunner/log
     tty: true
     restart: no
 

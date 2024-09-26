@@ -14,11 +14,13 @@ COPY . /testrunner/
 
 ENV PATH /testrunner/bin:$PATH
 ENV TESTS_WORKDIR /testrunner/
+ENV HTML_WORKDIR /testrunner/html
+ENV LOG_WORKDIR /testrunner/log
 
 WORKDIR "/testrunner"
 VOLUME [ "/testrunner/html" ]
-VOLUME [ "/testrunner/tests/mmtests/work/log" ]
+VOLUME [ "/testrunner/log" ]
 
-CMD ["/usr/bin/env", "bash", "-c", "/testrunner/bin/run.sh", "--", "-m"]
+CMD ["/bin/bash", "/testrunner/bin/run.sh", "-m"]
 
 
