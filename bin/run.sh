@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 clone_or_pull() {
-	if cd "$2" && [[ -d .git ]]; then git pull; cd -; else git clone "$1" "$2"; fi
+	if [[ -d "$2" ]] && cd "$2" && [[ -d .git ]]; then git pull; cd -; else git clone "$1" "$2"; fi
 }
 
 init()
@@ -28,7 +28,7 @@ mmtests()
 	cd mmtests
 
 	# Run tests
-	./run-mmtests.sh --no-monitor --config configs/config-workload-kernbench-max "${version}-linux-${date}"
+	yes '' | ./run-mmtests.sh --no-monitor --config configs/config-workload-kernbench-max "${version}-linux-${date}"
 
 	# Compare results
 	cd work/log
@@ -42,11 +42,16 @@ lkp()
 	echo "Running lkp..."
 }
 
-while getopts ":m:l" option; do
-	case $option in
-		m) mmtests
-		   exit;;
-	   	l) lkp
-		   exit;;
-   esac
-done
+main()
+{
+	set +x
+
+	for arg; do
+		case $arg in
+			-m) mmtests && exit 0 ;;
+			-l) lkp && exit 0 ;;
+		esac
+	done
+}
+
+main $@
