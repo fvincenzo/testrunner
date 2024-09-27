@@ -1,2 +1,4 @@
 export PATH=$(pwd)/bin:$PATH
 export TESTS_WORKDIR=$(pwd)
+export HTML_WORKDIR=$(pwd)/html
+export LOG_WORKDIR=$(pwd)/log
