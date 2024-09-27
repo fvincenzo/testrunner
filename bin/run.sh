@@ -28,7 +28,7 @@ mmtests()
 	cd mmtests
 
 	# Run tests
-	yes '' | ./run-mmtests.sh --no-monitor --config configs/config-workload-kernbench-max "${version}-linux-${date}"
+	yes '' | ./run-mmtests.sh --no-monitor --no-mount --config configs/config-workload-kernbench-max "${version}-linux-${date}"
 
 	# Compare results
 	cd work/log

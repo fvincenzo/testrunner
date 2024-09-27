@@ -21,6 +21,6 @@ WORKDIR "/testrunner"
 VOLUME [ "/testrunner/html" ]
 VOLUME [ "/testrunner/log" ]
 
-CMD ["/bin/bash", "/testrunner/bin/run.sh", "-m"]
+CMD ["/bin/bash", "/testrunner/bin/start.sh" ]
 
 

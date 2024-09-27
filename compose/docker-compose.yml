@@ -1,17 +1,31 @@
 # Docker composer file for Testrunner
 version: '3.8'
 services:
-  testrunner:
+  testrunner-mmtests:
     image: "ghcr.io/fvincenzo/testrunner:main"
-    container_name: "testrunner"
+    container_name: "testrunner-mmtests"
+    environment:
+      TESTRUNNER_ENV: mmtests
     volumes:
       - <html full path>:/testrunner/html
       - <log full path>:/testrunner/log
     tty: true
     restart: no
 
-  nginx:
+  testrunner-lkp:
+    image: "ghcr.io/fvincenzo/testrunner:main"
+    container_name: "testrunner-lkp"
+    environment:
+      TESTRUNNER_ENV: lkp
+    volumes:
+      - <html full path>:/testrunner/html
+      - <log full path>:/testrunner/log
+    tty: true
+    restart: no
+
+  testrunner-nginx:
     image: nginx:latest
+    container_name: "testrunner-nginx"
     ports:
       - "8080:80"
     volumes:
