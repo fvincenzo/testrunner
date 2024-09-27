@@ -4,6 +4,7 @@ services:
   testrunner-mmtests:
     image: "ghcr.io/fvincenzo/testrunner:main"
     container_name: "testrunner-mmtests"
+    profiles: ["donotstart"]
     environment:
       TESTRUNNER_ENV: mmtests
     volumes:
@@ -15,6 +16,7 @@ services:
   testrunner-lkp:
     image: "ghcr.io/fvincenzo/testrunner:main"
     container_name: "testrunner-lkp"
+    profiles: ["donotstart"]
     environment:
       TESTRUNNER_ENV: lkp
     volumes:
