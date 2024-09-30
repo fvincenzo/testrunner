@@ -38,7 +38,7 @@ mmtests()
 	cp -Rf * $LOG_WORKDIR
 
 	cd $LOG_WORKDIR
-	../tests/mmtests/compare-kernels.sh --format html --output-dir $TESTS_WORKDIR > $TESTS_WORKDIR/index.html
+	../tests/mmtests/compare-kernels.sh --format html --output-dir $HTML_WORKDIR > $HTML_WORKDIR/index.html
 }
 
 lkp()
