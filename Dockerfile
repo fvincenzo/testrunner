@@ -7,7 +7,7 @@ SHELL ["/bin/bash", "-c"]
 RUN DEBIAN_FRONTEND=noninteractive apt -qq -y update && \
     DEBIAN_FRONTEND=noninteractive apt -qq -y --no-install-recommends --no-install-suggests upgrade && \
     DEBIAN_FRONTEND=noninteractive apt -qq -y --no-install-recommends --no-install-suggests install \
-    git build-essential procps ca-certificates kmod
+    git build-essential procps ca-certificates kmod diffutils cpio python3
 
 RUN mkdir -p /testrunner/
 COPY . /testrunner/

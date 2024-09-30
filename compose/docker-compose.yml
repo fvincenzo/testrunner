@@ -4,6 +4,7 @@ services:
   testrunner-mmtests:
     image: "ghcr.io/fvincenzo/testrunner:main"
     container_name: "testrunner-mmtests"
+    privileged: true
     profiles: ["donotstart"]
     environment:
       TESTRUNNER_ENV: mmtests
@@ -16,6 +17,7 @@ services:
   testrunner-lkp:
     image: "ghcr.io/fvincenzo/testrunner:main"
     container_name: "testrunner-lkp"
+    privileged: true
     profiles: ["donotstart"]
     environment:
       TESTRUNNER_ENV: lkp

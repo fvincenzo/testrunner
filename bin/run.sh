@@ -27,8 +27,11 @@ mmtests()
 
 	cd mmtests
 
+	# Update kernbench
+	sed -i -e 's/5.14/6.11/g' configs/config-workload-kernbench-max
+
 	# Run tests
-	yes '' | ./run-mmtests.sh --no-monitor --no-mount --config configs/config-workload-kernbench-max "${version}-linux-${date}"
+	echo "yes" | ./run-mmtests.sh --no-monitor --no-mount --config configs/config-workload-kernbench-max "${version}-linux-${date}"
 
 	# Compare results
 	cd work/log
